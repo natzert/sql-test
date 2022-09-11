@@ -13,46 +13,49 @@ Excel document into a more easily machine readable CSV file (book_inventory.csv)
 
 ### Task 1
 #### Tools needed:
-- python
-- the book_inventory.csv file
+* python
+* the book_inventory.csv file
 
 #### Objective:
 You will need to write a python program to do the following:
-  1. Make sure you can read the contents of the CSV file
-    1. Import the csv library
-    2. Open the csv file
-    3. Read the contents
-    4. Skip the first line of the CSV file. This is just column titles (aka
-       headers) which are not going to be important to us.
-    5. Print each line, one by one
+    1. Make sure you can read the contents of the CSV file
+        1. Import the csv library
+        2. Open the csv file
+        3. Read the contents
+        4. Skip the first line of the CSV file. This is just column titles (aka
+           headers) which are not going to be important to us.
+        5. Print each line, one by one
 
 This will demonstrate the ability to import libraries, read files, and
 manipulate the data contained within those files.
 
 #### Hints
-- Open the file by using "with open(FILENAME)"
-- Loop over each line using a "for" statement
+* Open the file by using "with open(FILENAME)"
+* Loop over each line using a "for" statement
 
 ### Task 2
 #### Tools needed:
-- the mysql-connector-python library (install this with your code editor)
+  * the mysql-connector-python library (install this with your code editor)
 
 #### MySQL connection information:
-  host="192.168.1.91" # This is the IP address of the database server
-  user="nurhan"
-  password="example-password"
-  database="bookly"
+```
+    host="192.168.1.91" # This is the IP address of the database server
+    user="nurhan"
+    password="example-password"
+    database="bookly"
+```
 
 #### Table information:
 The table name is 'inventory'
 
 Available fields:
-  title
-  category
-  star_rating
-  price
-  stock
-  quantity
+
+* title
+* category
+* star_rating
+* price
+* stock
+* quantity
 
 You must provide data for all fields when inserting new records. No field can be
 left empty.
@@ -77,13 +80,13 @@ input for the values of a database record.
 1. Add configuration for the mysql connector. Refer to the data provided in the
    'MySQL connection information' section of this task.
 2. Create a new function called sqlinsert().
-  1. This function should accept one argument called "line"
-  2. Convert the "line" input variable to a tuple.
-  3. Write the mysql 'INSERT INTO' query for the table using the provided table
-     format.
-  4. Create a cursor using the mysql.connector library
-  5. Use the cursor to execute the insert statement and the converted value.
-  6. Commit to the database. This is what actually sends the data to the server.
+    1. This function should accept one argument called "line"
+    2. Convert the "line" input variable to a tuple.
+    3. Write the mysql 'INSERT INTO' query for the table using the provided table
+       format.
+    4. Create a cursor using the mysql.connector library
+    5. Use the cursor to execute the insert statement and the converted value.
+    6. Commit to the database. This is what actually sends the data to the server.
 
 3. Update your code from the previous task to send each line of the CSV file to
    the newly created sqlinsert() function.
